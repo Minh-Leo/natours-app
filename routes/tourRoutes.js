@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  checkId,
-  checkBody,
+  aliasTopTours,
   getAllTours,
   createTour,
   getTour,
@@ -12,12 +11,13 @@ const {
 } = require('./../controllers/tourController');
 
 // param middleware, only run when there params in url
-router.param('id', checkId);
+// router.param('id', checkId);
 
+router.route('/top-5-cheap').get(aliasTopTours, getAllTours);
 router
   .route('/')
   .get(getAllTours)
-  .post(checkBody, createTour);
+  .post(createTour);
 router
   .route('/:id')
   .get(getTour)
