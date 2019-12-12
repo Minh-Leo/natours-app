@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { signup } = require('./../controllers/authController');
 const {
   getAllUsers,
   createUser,
@@ -8,6 +9,7 @@ const {
   deleteUser
 } = require('./../controllers/userController');
 
+router.post('/signup', signup);
 router
   .route('/')
   .get(getAllUsers)
