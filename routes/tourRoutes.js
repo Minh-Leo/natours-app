@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-
+const { protect } = require('./../controllers/authController');
 const {
   aliasTopTours,
   getTourStats,
@@ -21,7 +21,7 @@ router.route('/tour-stats').get(getTourStats);
 router.route('/monthly-plan/:year').get(getMonthlyPlan);
 router
   .route('/')
-  .get(getAllTours)
+  .get(protect, getAllTours)
   .post(createTour);
 router
   .route('/:id')
