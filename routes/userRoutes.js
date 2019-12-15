@@ -28,6 +28,7 @@ router.patch('/resetPassword/:token', resetPassword);
 
 router.patch('/updateMe', protect, updateMe);
 router.delete('/deleteMe', protect, deleteMe);
+
 router
   .route('/')
   .get(getAllUsers)
