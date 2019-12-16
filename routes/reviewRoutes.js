@@ -12,15 +12,18 @@ const {
 } = require('./../controllers/reviewController');
 const { protect, restrictTo } = require('./../controllers/authController');
 
+// Protect route
+router.use(protect);
+
 router
   .route('/')
-  .get(protect, getAllReviews)
-  .post(protect, restrictTo('user'), setTourUserIds, createReview);
+  .get(getAllReviews)
+  .post(restrictTo('user'), setTourUserIds, createReview);
 
 router
   .route('/:id')
-  .get(protect, getReview)
-  .patch(updateReview)
-  .delete(deleteReview);
+  .get(getReview)
+  .patch(restrictTo('user', 'admin'), updateReview)
+  .delete(restrictTo('user', 'admin'), deleteReview);
 
 module.exports = router;
