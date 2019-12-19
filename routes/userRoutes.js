@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   signup,
   login,
+  logout,
   updatePassword,
   forgotPassword,
   resetPassword,
@@ -24,6 +25,7 @@ const {
 // Route for public
 router.post('/signup', signup);
 router.post('/login', login);
+router.get('/logout', logout);
 router.post('/forgotPassword', forgotPassword);
 router.patch('/resetPassword/:token', resetPassword);
 
