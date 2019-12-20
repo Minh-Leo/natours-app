@@ -26,7 +26,7 @@ const createSendToken = (user, statusCode, res) => {
   // remove password from he output
   user.password = undefined;
   res.status(statusCode).json({
-    status: 'Success',
+    status: 'success',
     token,
     data: {
       user
@@ -72,7 +72,7 @@ exports.logout = (req, res) => {
     httpOnly: true
   });
   res.status(200).json({
-    status: 'Success'
+    status: 'success'
   });
 };
 
