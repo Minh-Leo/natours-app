@@ -18,6 +18,8 @@ const {
   getMe,
   updateUser,
   deleteUser,
+  uploadUserPhoto,
+  resizeUserPhoto,
   updateMe,
   deleteMe
 } = require('./../controllers/userController');
@@ -35,7 +37,7 @@ router.use(protect);
 // then go below
 router.get('/me', getMe, getUser);
 router.patch('/updateMyPassword', updatePassword);
-router.patch('/updateMe', updateMe);
+router.patch('/updateMe', uploadUserPhoto, resizeUserPhoto, updateMe);
 router.delete('/deleteMe', deleteMe);
 
 // Route for only Admin
