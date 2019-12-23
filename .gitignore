@@ -1,11 +1,7 @@
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
 
-# Dependency directories
-node_modules/
-jspm_packages/
-.cache/
-
-# dotenv environment variables file
 *.env
 .env.test
+
+node_modules/
+.cache/
+build/Release
