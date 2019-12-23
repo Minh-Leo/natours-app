@@ -162,10 +162,10 @@ tourSchema.pre(/^find/, function(next) {
   next();
 });
 
-tourSchema.post(/^find/, function(docs, next) {
-  console.log(`Query took ${Date.now() - this.start} mili seconds`);
-  next();
-});
+// tourSchema.post(/^find/, function(docs, next) {
+//   console.log(`Query took ${Date.now() - this.start} mili seconds`);
+//   next();
+// });
 
 // AGGREGATION MIDDLEWARE, runs before aggregate() command, this one add selection of secretTour = false for aggregation pipeline
 // tourSchema.pre('aggregate', function(next) {

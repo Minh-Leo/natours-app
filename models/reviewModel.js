@@ -76,7 +76,6 @@ reviewSchema.statics.calcAverageRatings = async function(tourId) {
 // findByIdAndUpdate // findByIdAndDelete = findOneAndUpdate
 reviewSchema.pre(/^findOneAnd/, async function(next) {
   this.r = await this.findOne();
-  // console.log(this.r);
   next();
 });
 reviewSchema.post(/^findOneAnd/, async function() {
