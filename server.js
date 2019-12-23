@@ -38,3 +38,11 @@ process.on('unhandledRejection', err => {
     process.exit(1);
   });
 });
+
+// Heroku daily SIGTERM, shutdow app every 24h to keep it healthy
+process.on('SIGTERM', () => {
+  console.log('SIGTERM RECEIVED. Shutting down gracefully');
+  server.close(() => {
+    console.log('Process terminated!');
+  });
+});

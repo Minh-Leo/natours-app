@@ -20,6 +20,8 @@ const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
+app.enable('trust proxy');
+
 // Use view template PUG
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -60,6 +62,7 @@ app.use(
   })
 );
 
+// Gzip
 app.use(compression());
 
 // Serving static files
